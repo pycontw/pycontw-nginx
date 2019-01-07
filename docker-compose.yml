@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 8080:80
+    container_name: pycontw-nginx
+    hostname: pycontw-nginx
+    volumes:
+        - /var/www/dehydrated:/var/www/dehydrated
+
+networks:
+    default:
+        external:
+            name: pycontw-net
+
