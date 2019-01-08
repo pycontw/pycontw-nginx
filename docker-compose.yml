@@ -3,13 +3,13 @@ version: '3'
 services:
 
   nginx:
-    image: nginx:latest
+    build: .
     ports:
       - 8080:80
     container_name: pycontw-nginx
     hostname: pycontw-nginx
     volumes:
-        - /var/www/dehydrated:/var/www/dehydrated
+        - /var/www/letsencrypt:/var/www/letsencrypt
 
 networks:
     default:
