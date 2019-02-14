@@ -7,6 +7,7 @@ services:
     ports:
       - 8080:80
     container_name: pycontw-nginx
+    restart: always
     hostname: pycontw-nginx
     volumes:
         - /var/www/letsencrypt:/var/www/letsencrypt
