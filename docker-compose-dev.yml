@@ -9,6 +9,9 @@ services:
     container_name: pycontw-nginx
     restart: always
     hostname: pycontw-nginx
+    volumes:
+      - ./log:/var/log/nginx
+
 
 networks:
     default:
