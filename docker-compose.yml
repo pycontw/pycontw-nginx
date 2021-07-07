@@ -6,11 +6,13 @@ services:
     build: .
     ports:
       - 80:80
+      - 443:443
     container_name: pycontw-nginx
     restart: always
     hostname: pycontw-nginx
     volumes:
         - /var/www/letsencrypt:/var/www/letsencrypt
+        - /var/lib/dehydrated:/var/lib/dehydrated
 
 networks:
     default:
