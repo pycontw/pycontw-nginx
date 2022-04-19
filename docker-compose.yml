@@ -1,4 +1,4 @@
-version: '3'
+version: '3.5'
 
 services:
 
@@ -11,8 +11,12 @@ services:
     hostname: pycontw-nginx
     volumes:
         - /var/www/letsencrypt:/var/www/letsencrypt
+    networks:
+        - pycontw-net
+        - network-2022
 
 networks:
-    default:
-        external:
-            name: pycontw-net
+    pycontw-net:
+        external: true
+    network-2022:
+        external: true
