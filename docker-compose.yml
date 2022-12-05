@@ -14,9 +14,12 @@ services:
     networks:
         - pycontw-net
         - network-2022
+        - network-2023
 
 networks:
     pycontw-net:
         external: true
     network-2022:
+        external: true
+    network-2023:
         external: true
