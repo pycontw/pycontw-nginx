@@ -13,13 +13,10 @@ services:
         - /var/www/letsencrypt:/var/www/letsencrypt
     networks:
         - pycontw-net
-        - network-2022
-        - network-2023
+        - network-2024
 
 networks:
     pycontw-net:
         external: true
-    network-2022:
-        external: true
-    network-2023:
+    network-2024:
         external: true
