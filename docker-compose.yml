@@ -1,19 +1,37 @@
 version: '3.5'
 
-services:
+x-base: &base
+  container_name: pycontw-nginx
+  restart: always
+  hostname: pycontw-nginx
+  networks:
+    - pycontw-net
+    - network-2024
 
-  nginx:
-    build: .
+services:
+  nginx-prod:
+    <<: *base
+    build:
+      context: .
+      args:
+        - ENV=prod
     ports:
       - 80:80
-    container_name: pycontw-nginx
-    restart: always
-    hostname: pycontw-nginx
     volumes:
         - /var/www/letsencrypt:/var/www/letsencrypt
-    networks:
-        - pycontw-net
-        - network-2024
+
+  nginx-stag:
+    <<: *base
+    build:
+      context: .
+      args:
+        - ENV=stag
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+        - /var/www/letsencrypt:/var/www/letsencrypt
+        - /var/lib/dehydrated/certs/staging.pycon.tw:/var/lib/dehydrated/certs/staging.pycon.tw/
 
 networks:
     pycontw-net:
