@@ -6,7 +6,7 @@ x-base: &base
   hostname: pycontw-nginx
   networks:
     - pycontw-net
-    - network-2024
+    - network-2025
 
 services:
   nginx-prod:
@@ -36,5 +36,5 @@ services:
 networks:
     pycontw-net:
         external: true
-    network-2024:
+    network-2025:
         external: true
